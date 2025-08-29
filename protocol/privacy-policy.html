@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-width: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>Krylic - Privacy Policy</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='privacy-policy'><span>Privacy Policy</span></h1><p><strong><span>Effective Date</span></strong><span>: 2025 / 06 / 12</span></p><h3 id='introduction'><span>Introduction</span></h3><p><span>Welcome to </span><strong><span>Krylic</span></strong><span> (&quot;the App,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. Your privacy is of utmost importance to us.</span></p><p><span>By downloading, accessing, or using our App, you consent to the data practices described in this Privacy Policy. If you do not agree with the terms of this policy, please do not use the App.</span></p><p><strong><span>PLEASE NOTE THAT, this Privacy Policy does not apply to the following cases:</span></strong></p><ul><li><p><span>Any information or personal information collected by any third-party services, products, applications, websites and/or platforms, regardless whether they are accessible through our applications and/or websites; or</span></p></li><li><p><span>Any information or personal information collected by other companies or institutions that provide advertising services through our applications and/or websites.</span></p></li></ul><p><span>In such circumstances, you should refer directly to privacy policies for the relevant third party.</span></p><p>&nbsp;</p><h3 id='information-we-collect'><span>Information We Collect</span></h3><p><span>We may collect information about you in a variety of ways. The information we may collect via the App includes:</span></p><h4 id='personal-data-you-provide-to-us'><span>Personal Data You Provide to Us</span></h4><ul><li><p><strong><span>Personal Information:</span></strong><span> Any information that identifies (whether directly or indirectly) a particular natural person, such as the name, email address, phone number, the identification number, location data, or an online identifier, etc. It does not include data where the identity has been removed (anonymous data)..</span></p></li><li><p><strong><span>User-Generated Content:</span></strong><span> We collect the content you create within the App, which includes the text prompts, images, icons, and other assets you input to generate images, as well as the final designs and drafts you save (&quot;User Content&quot;).</span></p></li></ul><h4 id='data-collected-automatically'><span>Data Collected Automatically</span></h4><ul><li><p><strong><span>Usage Data:</span></strong><span> We automatically collect information about how you interact with our App. This includes features you use, the time, frequency, and duration of your activities, session duration, and other interaction data.</span></p></li><li><p><strong><span>Device Information:</span></strong><span> We collect information about the mobile device you use to access the App, including the device model, operating system version, IP address, language settings, and unique device identifiers (such as Apple&#39;s IDFA or IDFV).</span></p></li><li><p><strong><span>Crash and Performance Data:</span></strong><span> We may collect data related to the performance of the App, including crash reports and analytics, to identify and fix bugs and improve stability.</span></p></li></ul><p>&nbsp;</p><h3 id='how-we-use-your-information'><span>How We Use Your Information</span></h3><p><span>We use the information we collect for various purposes, including:</span></p><ul><li><p><strong><span>To Improve and Personalize the App:</span></strong><span> To understand how our users interact with the App, analyze usage patterns, enhance the user experience, and develop new features and services.</span></p></li><li><p><strong><span>To Train Our AI Models:</span></strong><span> To develop, train, and improve our artificial intelligence models and algorithms that power the image generation features. We may use your User Content in an aggregated and anonymized form for this purpose.</span></p></li><li><p><strong><span>To Communicate with You:</span></strong><span> To send you service-related announcements, technical notices, updates, and security alerts. With your consent, we may also send you marketing and promotional materials. You may opt out of marketing communications at any time.</span></p></li><li><p><strong><span>For Security and Legal Compliance:</span></strong><span> To protect the security and integrity of our App, prevent fraud, enforce our terms of service, and comply with legal obligations.</span></p></li></ul><p><span>WE DO NOT and will never collect your personal information without notifying you and obtaining your permission.</span></p><p>&nbsp;</p><h3 id='sharing-and-disclosure-of-information'><span>Sharing and Disclosure of Information</span></h3><p><span>We do not sell your personal data. We may share your information with third parties only in the following circumstances:</span></p><ul><li><p><strong><span>With Service Providers:</span></strong><span> We may share information with third-party vendors, consultants, and other service providers who perform services on our behalf. This may include:</span></p><ul><li><p><span>Cloud hosting and storage providers (e.g., Amazon Web Services, Google Cloud).</span></p></li><li><p><span>Data analytics services (e.g., Google Analytics for Firebase).</span></p></li><li><p><span>Infrastructure and crash monitoring services (e.g., Firebase Crashlytics).</span></p></li><li><p><span>Advertising partners (e.g., Google AdMob), to show personalized ads.</span></p></li><li><p><span>Push notification services (e.g., Firebase Cloud Messaging).</span></p></li><li><p><span>These service providers are contractually obligated to safeguard your data and are not permitted to use it for any other purpose.</span></p></li></ul></li><li><p><strong><span>For Legal Reasons:</span></strong><span> We may disclose your information if we are required to do so by law or in the good faith belief that such action is necessary to comply with a legal obligation, protect and defend our rights or property, or protect the personal safety of users or the public.</span></p></li><li><p><strong><span>In Case of a Business Transfer:</span></strong><span> In the event of a merger, acquisition, sale of assets, or bankruptcy, your information may be transferred as part of that transaction. We will notify you of any such change in ownership or control of your personal information.</span></p></li></ul><p>&nbsp;</p><h3 id='data-retention-and-deletion'><span>Data Retention and Deletion</span></h3><h4 id='where-we-store-your-personal-information'><span>Where We Store Your Personal Information</span></h4><p><span>We primarily store your edited content on Firebase, accessing it remotely via Firebase rather than on our servers. When you contact us for feedback, complaints, bug reports, or questions about your personal information, we may collect and use technical information (e.g., IP address, browser type, mobile model, operating system, network type, and other browser settings/preferences) and your contact details (e.g., email address). This data is stored on Google Sheets, not on our local devices or servers. </span></p><h4 id='how-long-we-store-your-personal-information'><span>How Long We Store Your Personal Information</span></h4><p><span>We generally do not store your personal information unless explicitly stated in our Privacy Policy. When retention is necessary for purposes outlined in the Privacy Policy, we limit it to the period required by applicable laws and regulations. For instance, if you contact us for feedback, complaints, bug reports, or personal information inquiries, we retain your data and contact details only as long as needed to respond to your request, after which we promptly and securely delete it. However, we may retain data longer if required for legitimate purposes, such as complying with legal obligations, resolving disputes, or enforcing agreements.</span></p><p>&nbsp;</p><h3 id='your-privacy-rights'><span>Your Privacy Rights</span></h3><p><span>Depending on your location, you may have certain rights regarding your personal information:</span></p><ul><li><p><strong><span>Right to Access:</span></strong><span> You have the right to request a copy of the personal information we hold about you.</span></p></li><li><p><strong><span>Right to Rectification:</span></strong><span> You have the right to request that we correct any inaccurate or incomplete information.</span></p></li><li><p><strong><span>Right to Erasure (Deletion):</span></strong><span> You have the right to request the deletion of your personal information, subject to certain legal exceptions.</span></p></li><li><p><strong><span>Right to Restrict Processing:</span></strong><span> You have the right to request that we restrict the processing of your personal data under certain conditions.</span></p></li><li><p><strong><span>Right to Data Portability:</span></strong><span> You have the right to receive your data in a structured, machine-readable format.</span></p></li><li><p><strong><span>Right to Object:</span></strong><span> You have the right to object to the processing of your personal data for marketing purposes.</span></p></li></ul><p><span>You may exercise your data protection rights by “Settings” on the APP as follows:</span></p><ul><li><p><span>If you have created an account, you can delete your account information (e.g. subscription information, payment information, contact details) through “Settings”.</span></p></li><li><p><span>If you want to access or control personal information collected and processed by us, which is not available by “Settings” on the APP, you can  contact us via the methods we provide in the “Contact Us” Section hereinafter.</span></p></li></ul><p><span>PLEASE NOTE THAT, if you decide not to provide the personal information we request (such as your contact detail to communicate with you) we may not be able to timely or adequately respond to your needs or proposals with respect to your rights as set forth above. </span></p><p><span>Please send an e-mail to us if you would like to exercise any of your rights.</span></p><p>&nbsp;</p><h3 id='data-security'><span>Data Security</span></h3><p><span>We implement appropriate technical and organizational security measures designed to protect your personal information from unauthorized access, use, alteration, or disclosure. However, please be aware that no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</span></p><p>&nbsp;</p><h3 id='international-data-transfers'><span>International Data Transfers</span></h3><p><span>Your information, including personal data, may be transferred to — and maintained on — computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those in your jurisdiction. By using our App, you consent to this transfer.</span></p><p>&nbsp;</p><h3 id='childrens-privacy'><span>Children&#39;s Privacy</span></h3><p><span>Our App is not intended for or directed at individuals under the age of 16 (or a higher age threshold as required by local law). We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us. If we become aware that we have collected personal information from a child without verification of parental consent, we will take steps to remove that information from our servers.</span></p><p>&nbsp;</p><h3 id='advertising'><span>Advertising</span></h3><p><span>WE WILL NOT send you any promotional information by email, SMS, physical or telephone. PLEASE NOTE THAT, we use Google AdMob as advertising providers, any advertising on our applications are published and controlled by them instead of us, and therefore, if you click those advertising link to any third party, you shall read their privacy policies carefully, and you shall understand that their privacy policies are not controlled or covered by us(to know how Google AdMob collect and process with your personal information when you use any websites and/or applications have established partnership with Google AdMob, please refer to </span><a href='https://support.google.com/admob/answer/6128543'><span>this link</span></a><span>).</span></p><p>&nbsp;</p><h3 id='california-consumer-privacy-act-ccpa'><span>California Consumer Privacy Act (“CCPA”)</span></h3><p><span>If you are a California resident, the supplemental terms in this section may apply to you. PLEASE NOTE THAT we may request proof of California residency before responding to requests made under this section. Right to Opt-out. WE DO NOT sell your personal information or share, exchange your personal information with any third party. Therefore, WE DO NOT offer an opt-out to the sale of personal information as required by CCPA. Right to know. You may submit a verifiable request for us to provide the following information, which we may be able to provide you for no more than twice in a 12-month period with free of charge:</span></p><ul><li><p><span>The specific pieces of personal information we have about you;</span></p></li><li><p><span>The categories of personal information we collected, sold, or disclosed for a business purpose about you within the last 12 months;</span></p></li><li><p><span>The categories of sources from which the personal information was collected;</span></p></li><li><p><span>The purposes for which the information was collected or sold; and</span></p></li><li><p><span>The categories of third parties to whom the information was sold, disclosed for a business purpose, or otherwise shared.</span></p></li></ul><p><span>If possible, we will provide this information to you in a readily usable format that allows transmission to another entity. Right to Data Portability. You have the right to request certain copies of your personal information you have provided to us, to move data from one company to another (often called the right to data portability). PLEASE NOTE THAT we may not able to provide any copy of your personal information since we usually not store any of your personal information; and Right to Delete. You may submit a verifiable request for us to delete the personal information we have collected about you. We may retain personal information necessary to: (i) protect our business, systems, and users from fraudulent activity; (ii) comply with law enforcement requests pursuant to lawful process; or (iii) for scientific or historical research. YOU WIll NOT be discriminated (such as price discrimination) for exercising your rights under CCPA. Please contact us via appropriate means as set forth in “Contact Details” Section of this Privacy Policy if you would like to exercise your rights under this section.</span></p><p>&nbsp;</p><h3 id='general-data-protection-regulation-gdpr'><span>General Data Protection Regulation (“GDPR”)</span></h3><p><span>If you are a resident in the EEA, Switzerland or the UK (the “European Region”), supplemental terms in this section may apply to you:</span></p><h4 id='international-data-transfers-2'><span>International data transfers</span></h4><p><span>If you normally reside in the European Region, the personal information that we collect from you will be further transferred to, and stored at, a destination outside of the European Region (for instance, to our service providers and partners). These transfers are made pursuant to appropriate safeguards, such as standard data protection clauses adopted by the European Commission.</span></p><h4 id='you-have-the-following-rights'><span>You have the following rights:</span></h4><ul><li><p><span>The right to request free of charge (i) confirmation of whether we process your personal information and (ii) access to a copy of the personal information retained;</span></p></li><li><p><span>The right to request proper rectification or removal of your personal information or restriction of the processing of your personal information;</span></p></li><li><p><span>Where processing of your personal information is either based on your consent or necessary for the performance of a contract with you and processing is carried out by automated means, the right to receive the personal information concerning you in a structured, commonly used and machine-readable format or to have your personal information transmitted directly to another company, where technically feasible (data portability);</span></p></li><li><p><span>Where the processing of your personal information is based on your consent, the right to withdraw your consent at any time (withdrawal will not impact the lawfulness of data processing activities that have taken place before such withdrawal);</span></p></li><li><p><span>The right not to be subject to any automatic individual decisions, including profiling, which produces legal effects on you or similarly significantly affects you unless we have your consent, this is authorised by Union or Member State law or this is necessary for the performance of a contract;</span></p></li><li><p><span>The right to object to processing if we are processing your personal information on the basis of our legitimate interest unless we can demonstrate compelling legitimate grounds which may override your right. If you object to such processing, we ask you to state the grounds of your objection in order for us to examine the processing of your personal information and to balance our legitimate interest in processing and your objection to this processing;</span></p></li><li><p><span>The right to object to processing your personal information for direct marketing purposes; and</span></p></li><li><p><span>The right to lodge complaints before the competent data protection regulator.</span></p></li></ul><p><span>Before we can respond to a request to exercise one or more of the rights listed above, you may be required to verify your identity or your account details. Please send an e-mail to us if you would like to exercise any of your rights.</span></p><p>&nbsp;</p><h3 id='changes-to-this-privacy-policy'><span>Changes to This Privacy Policy</span></h3><p><span>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the new Privacy Policy within the App and updating the &quot;Effective Date&quot; at the top of this policy. You are advised to review this Privacy Policy periodically for any changes.</span></p><p>&nbsp;</p><h3 id='contact-us'><span>Contact Us</span></h3><p><span>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please do not hesitate to contact us at:</span></p><p><span>Email: </span><strong><a href='mailto:free.summer.dev@gmail.com' target='_blank' class='url'>free.summer.dev@gmail.com</a></strong><span> </span></p></div></div>
+</body>
+</html>
